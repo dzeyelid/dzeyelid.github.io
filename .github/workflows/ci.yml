@@ -12,7 +12,7 @@ env:
   WORKING_DIR: portfolio
 defaults:
   run:
-    working-directory: ${{ WORKING_DIR }}
+    working-directory: ${{ env.WORKING_DIR }}
 
 jobs:
   ci:
