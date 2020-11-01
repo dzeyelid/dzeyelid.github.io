@@ -28,8 +28,12 @@ jobs:
         node: [14]
 
     steps:
-      - name: Make fail if the previous workflow was failed
-        if: ${{ github.event.workflow_run.conclusion != 'success' }}
-        run: echo '::error::Previous workflow was failed' && exit 1
+      - name: Test
+        run: |
+          echo "Hooray!"
 
-      # Push distributable files to gh-pages branch
+      # - name: Make fail if the previous workflow was failed
+      #   if: ${{ github.event.workflow_run.conclusion != 'success' }}
+      #   run: |
+      #     echo '::error::Previous workflow was failed'
+      #     exit 1
