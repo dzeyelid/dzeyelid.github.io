@@ -56,10 +56,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ${{ env.WORKING_DIR }}
-
     strategy:
       matrix:
         os: [ubuntu-latest]
