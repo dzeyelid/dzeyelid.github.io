@@ -16,19 +16,19 @@ jobs:
   deploy:  
     runs-on: ${{ matrix.os }}
 
-  defaults:
-    run:
-      working-directory: ${{ env.WORKING_DIR }}
+    defaults:
+      run:
+        working-directory: ${{ env.WORKING_DIR }}
 
-  strategy:
-    matrix:
-      os: [ubuntu-latest]
-      node: [14]
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
 
-  steps:
-    - name: test
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
+    steps:
+      - name: test
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
 
-  # Push distributable files to gh-pages branch
+    # Push distributable files to gh-pages branch
