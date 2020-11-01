@@ -21,7 +21,8 @@ env:
       os: [ubuntu-latest]
       node: [14]
 
-  deploy:
+jobs:
+  deploy:  
     steps:
       - name: test
         env:
