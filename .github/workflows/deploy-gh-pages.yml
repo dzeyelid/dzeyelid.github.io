@@ -28,12 +28,17 @@ jobs:
         node: [14]
 
     steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+
       - name: Test
         run: |
-          echo 'Hooray!'
+          exit 1
 
       # - name: Make fail if the previous workflow was failed
       #   if: ${{ github.event.workflow_run.conclusion != 'success' }}
       #   run: |
       #     echo '::error::Previous workflow was failed'
       #     exit 1
+
+      # Push distributable files to gh-pages branch
