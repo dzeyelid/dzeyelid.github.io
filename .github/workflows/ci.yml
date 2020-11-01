@@ -44,6 +44,3 @@ jobs:
 
       - name: Run linter 👀
         run: npm run lint
-
-      - name: Make failure for debug
-        run: exit 1
