@@ -13,8 +13,8 @@ on:
       - main
     types: 
       - completed
-    # paths:
-    #   - ${{ env.WORKING_DIR }}/**
+    paths:
+      - ${{ env.WORKING_DIR }}/**
 
 jobs:
   build:
@@ -63,11 +63,6 @@ jobs:
     needs: build
 
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [14]
 
     steps:
       - name: Checkout 🛎
