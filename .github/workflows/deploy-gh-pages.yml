@@ -30,6 +30,6 @@ jobs:
     steps:
       - name: Make fail if the previous workflow was failed
         if: ${{ github.event.workflow_run.conclusion != 'success' }}
-        run: echo '::error'
+        run: echo '::error::Previous workflow was failed' && exit 1
 
       # Push distributable files to gh-pages branch
