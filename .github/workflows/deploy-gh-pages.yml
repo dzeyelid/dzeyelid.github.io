@@ -39,6 +39,14 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
+      - name: Cache node_modules 📦
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: deploy-gh-pages-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            deploy-gh-pages-node-
+
       - name: Build and generate static project 🛠
         run: |
           npm install
