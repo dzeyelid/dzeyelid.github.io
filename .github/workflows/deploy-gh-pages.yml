@@ -62,10 +62,18 @@ jobs:
         node: [14]
 
     steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+
       - name: Download artifact 📦
         uses: actions/download-artifact@v2
         with:
           name: dist-files
 
-      - name: Show for debug
-        run: ls -R
+      - name: Push 🎁
+        run: |
+          git config user.name auto-deploy
+          git add .
+          git commit -m "Auto deploy by SHA ${{ github.sha }}"
