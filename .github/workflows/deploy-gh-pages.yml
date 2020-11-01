@@ -12,6 +12,10 @@ on:
 env:
   WORKING_DIR: portfolio
 
+jobs:
+  deploy:  
+    runs-on: ${{ matrix.os }}
+
   defaults:
     run:
       working-directory: ${{ env.WORKING_DIR }}
@@ -21,12 +25,10 @@ env:
       os: [ubuntu-latest]
       node: [14]
 
-jobs:
-  deploy:  
-    steps:
-      - name: test
-        env:
-          GITHUB_CONTEXT: ${{ github }}
-        run: echo $GITHUB_CONTEXT
+  steps:
+    - name: test
+      env:
+        GITHUB_CONTEXT: ${{ github }}
+      run: echo $GITHUB_CONTEXT
 
-    # Push distributable files to gh-pages branch
+  # Push distributable files to gh-pages branch
