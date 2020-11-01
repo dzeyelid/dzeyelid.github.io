@@ -1,0 +1,31 @@
+name: Deploy to GitHub Pages
+
+on:
+  workflow_run:
+    workflows:
+      - ci
+    branches:
+      - main
+    types: 
+      - completed
+
+env:
+  WORKING_DIR: portfolio
+
+  defaults:
+    run:
+      working-directory: ${{ env.WORKING_DIR }}
+
+  strategy:
+    matrix:
+      os: [ubuntu-latest]
+      node: [14]
+
+  deploy:
+    steps:
+      - name: test
+        env:
+          GITHUB_CONTEXT: ${{ github }}
+        run: echo $GITHUB_CONTEXT
+
+    # Push distributable files to gh-pages branch
