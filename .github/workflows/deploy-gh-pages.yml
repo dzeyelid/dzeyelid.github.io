@@ -77,3 +77,4 @@ jobs:
           git config user.name auto-deploy
           git add .
           git commit -m "Auto deploy by SHA ${{ github.sha }}"
+          git push
