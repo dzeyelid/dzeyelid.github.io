@@ -9,8 +9,7 @@ on:
       - main
     types: 
       - completed
-    paths:
-      - portfolio/**
+
 
 env:
   WORKING_DIR: portfolio

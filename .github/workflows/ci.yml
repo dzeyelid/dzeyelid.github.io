@@ -4,7 +4,11 @@ on:
   push:
     branches:
       - main
+    paths:
+      - portfolio/**
   pull_request:
+    paths:
+      - portfolio/**
 
 env:
   WORKING_DIR: portfolio
