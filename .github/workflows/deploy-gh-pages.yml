@@ -1,5 +1,8 @@
 name: Deploy to GitHub Pages
 
+env:
+  WORKING_DIR: portfolio
+
 on:
   workflow_run:
     workflows:
@@ -8,9 +11,8 @@ on:
       - main
     types: 
       - completed
-
-env:
-  WORKING_DIR: portfolio
+    # paths:
+    #   - ${{ env.WORKING_DIR }}/**
 
 jobs:
   deploy:  
@@ -26,9 +28,8 @@ jobs:
         node: [14]
 
     steps:
-      - name: test
-        env:
-          GITHUB_WORKFLOW_RUN_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
-        run: echo "$GITHUB_WORKFLOW_RUN_CONCLUSION"
+      - name: Make fail if the previous workflow was failed
+        if: ${{ github.event.workflow_run.conclusion != 'success' }}
+        run: exit -1
 
-    # Push distributable files to gh-pages branch
+      # Push distributable files to gh-pages branch
