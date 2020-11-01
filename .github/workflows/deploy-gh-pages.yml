@@ -30,7 +30,7 @@ jobs:
     steps:
       - name: Test
         run: |
-          echo "Hooray!"
+          echo 'Hooray!'
 
       # - name: Make fail if the previous workflow was failed
       #   if: ${{ github.event.workflow_run.conclusion != 'success' }}
