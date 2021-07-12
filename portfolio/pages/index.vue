@@ -3,6 +3,7 @@
     <div>
       <Logo />
       <h1 class="title">portfolio</h1>
+      <div>Hooray!</div>
       <div class="links">
         <a
           href="https://nuxtjs.org/"

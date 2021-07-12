@@ -10,7 +10,6 @@ on:
     types: 
       - completed
 
-
 env:
   WORKING_DIR: portfolio
   NODE_VERSION: 14
@@ -24,14 +23,14 @@ jobs:
         working-directory: ${{ env.WORKING_DIR }}
 
     steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@v2
-
       - name: Make fail if the previous workflow was failed
         if: ${{ github.event.workflow_run.conclusion != 'success' }}
         run: |
           echo '::error::Previous workflow was failed'
           exit 1
+
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
 
       - name: Setup node env 🏗
         uses: actions/setup-node@v2.1.2
