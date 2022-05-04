@@ -17,6 +17,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: production
 
     defaults:
       run:
@@ -51,6 +52,7 @@ jobs:
           npm run build
           npm run generate
         env:
+          STORYBLOK_KEY: ${{ secrets.STORYBLOK_KEY }}
           NUXT_ENV_STORYBLOK_VERSION: published
 
       - name: Upload artifact 📦
