@@ -1,5 +1,6 @@
 <template>
-  <div class="bio" v-html="bio"></div>
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <div class="bio" v-html="bio"></div>
 </template>
 
 <script>

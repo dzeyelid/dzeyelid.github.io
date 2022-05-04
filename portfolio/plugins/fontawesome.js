@@ -18,4 +18,5 @@ library.add(
 )
 
 // Register the component globally
+// eslint-disable-next-line vue/component-definition-name-casing
 Vue.component('font-awesome-icon', FontAwesomeIcon)
