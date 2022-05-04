@@ -10,7 +10,9 @@ export default {
   name: 'IndexPage',
   setup(props) {
     const version =
-      process.env.NUXT_ENV_STORYBLOK_VERSION === 'published' ? 'published' : 'draft'
+      process.env.NUXT_ENV_STORYBLOK_VERSION === 'published'
+        ? 'published'
+        : 'draft'
     const { story, fetchState } = useStoryblok('home', { version })
     return {
       story,
