@@ -1,0 +1,3 @@
+@content = home
+
+GET https://api.storyblok.com/v2/cdn/stories/{{content}}?version=draft&token={{$processEnv STORYBLOK_KEY}}&cv={{$timestamp}}

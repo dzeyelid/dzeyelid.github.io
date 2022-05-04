@@ -10,10 +10,9 @@ on:
     types: 
       - completed
 
-
 env:
   WORKING_DIR: portfolio
-  NODE_VERSION: 14
+  NODE_VERSION: 16
 
 jobs:
   build:
@@ -25,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Make fail if the previous workflow was failed
         if: ${{ github.event.workflow_run.conclusion != 'success' }}
@@ -34,12 +33,12 @@ jobs:
           exit 1
 
       - name: Setup node env 🏗
-        uses: actions/setup-node@v2.1.2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Cache node_modules 📦
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: deploy-gh-pages-node-${{ hashFiles('**/package-lock.json') }}
@@ -51,9 +50,11 @@ jobs:
           npm install
           npm run build
           npm run generate
+        env:
+          NUXT_ENV_STORYBLOK_VERSION: published
 
       - name: Upload artifact 📦
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: dist-files
           path: ${{ env.WORKING_DIR }}/dist
@@ -65,12 +66,12 @@ jobs:
 
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: gh-pages
 
       - name: Download artifact 📦
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: dist-files
 
