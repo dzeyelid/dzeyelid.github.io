@@ -1,6 +1,6 @@
 <template>
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <div class="bio" v-html="bio"></div>
+  <!-- eslint-disable-next-line vue/no-v-html -->
+  <div class="bio" v-html="bio"></div>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
       required: true,
       type: String,
     },
-  }
+  },
 }
 </script>
 
@@ -31,7 +31,8 @@ export default {
   @apply header text-xl my-4;
 }
 
-.bio /deep/ h4,h5 {
+.bio /deep/ h4,
+h5 {
   @apply header text-lg;
 }
 

@@ -2,14 +2,22 @@
   <div v-editable="blok" class="">
     <div class="flex">
       <div class="m-6">
-        <img :src="blok.icon.filename" alt="blok.icon.alt" class="rounded-full ring-2 ring-white">
+        <img
+          :src="blok.icon.filename"
+          alt="blok.icon.alt"
+          class="rounded-full ring-2 ring-white"
+        />
       </div>
       <div>
         <div class="m-6">
-          <div class="name text-5xl font-bold tracking-wider">{{ blok.name_en }}</div>
-          <div class="name text-2xl font-medium tracking-wide">{{ blok.name }}</div>
+          <div class="name text-5xl font-bold tracking-wider">
+            {{ blok.name_en }}
+          </div>
+          <div class="name text-2xl font-medium tracking-wide">
+            {{ blok.name }}
+          </div>
         </div>
-  
+
         <div class="m-6">
           <StoryblokComponent
             v-for="child in blok.links"
@@ -40,13 +48,15 @@ export default {
       validator: (value) => {
         return (
           value === null ||
-          Object.hasOwn(value, 'links') && Array.isArray(value.links) &&
-          Object.hasOwn(value, 'name') && Object.hasOwn(value, 'name_en') &&
-          Object.hasOwn(value, 'icon') &&
-          Object.hasOwn(value, 'bio')
+          (Object.hasOwn(value, 'links') &&
+            Array.isArray(value.links) &&
+            Object.hasOwn(value, 'name') &&
+            Object.hasOwn(value, 'name_en') &&
+            Object.hasOwn(value, 'icon') &&
+            Object.hasOwn(value, 'bio'))
         )
-      }
-    }
+      },
+    },
   },
 
   setup: (props) => {
@@ -54,7 +64,7 @@ export default {
     return {
       bio,
     }
-  }
+  },
 }
 </script>
 

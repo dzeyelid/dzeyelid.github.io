@@ -15,11 +15,10 @@ export default {
       required: true,
       validator: (value) => {
         return (
-          value === null ||
-          value.body != null && Array.isArray(value.body)
+          value === null || (value.body != null && Array.isArray(value.body))
         )
       },
-    }
+    },
   },
-};
+}
 </script>

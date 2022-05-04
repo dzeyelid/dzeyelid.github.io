@@ -10,10 +10,10 @@ export default {
       validator: (value) => {
         return (
           value === null ||
-          Object.hasOwn(value, 'prefix') && Object.hasOwn(value, 'name')
+          (Object.hasOwn(value, 'prefix') && Object.hasOwn(value, 'name'))
         )
       },
     },
   },
-};
+}
 </script>

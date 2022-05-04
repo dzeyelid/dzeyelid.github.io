@@ -9,7 +9,8 @@ import { useStoryblok } from '@storyblok/nuxt'
 export default {
   name: 'IndexPage',
   setup(props) {
-    const version = process.env.STORYBLOK_VERSION === 'published' ? 'published' : 'draft'
+    const version =
+      process.env.STORYBLOK_VERSION === 'published' ? 'published' : 'draft'
     const { story, fetchState } = useStoryblok('home', { version })
     return {
       story,
