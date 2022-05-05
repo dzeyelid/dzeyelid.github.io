@@ -48,12 +48,11 @@ export default {
 
 @layer base {
   a {
-    @apply text-gray-700;
+    @apply text-gray-700 no-underline;
   }
 
   a:hover {
     @apply underline;
-    text-underline-offset: 3px;
   }
 }
 </style>
