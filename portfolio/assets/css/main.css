@@ -13,4 +13,9 @@
   a {
     @apply font-mono;
   }
+
+  a {
+    @apply underline;
+    text-underline-offset: 3px;
+  }
 }
