@@ -44,4 +44,9 @@ h5 {
 .bio /deep/ ol li {
   @apply list-decimal list-inside;
 }
+
+.bio /deep/ a {
+  @apply underline;
+  text-underline-offset: 3px;
+}
 </style>
