@@ -21,13 +21,3 @@ export default {
   },
 }
 </script>
-
-<style>
-@tailwind base;
-
-@layer base {
-  body {
-    @apply font-mono;
-  }
-}
-</style>

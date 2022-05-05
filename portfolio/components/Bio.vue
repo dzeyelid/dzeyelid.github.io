@@ -37,7 +37,7 @@ h5 {
 }
 
 .bio /deep/ ul li {
-  @apply border-solid border-l-4 border-gray-200 list-inside;
+  @apply border-solid border-l-4 border-gray-200 list-inside leading-6 ml-1 mb-2;
   text-indent: 1rem;
 }
 
